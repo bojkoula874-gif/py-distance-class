@@ -25,15 +25,15 @@ class Distance:
         self.km += other
         return self
 
-    def __mul__(self, other: Distance | int | float) -> Distance:
+    def __mul__(self, other: int | float) -> Distance:
         if isinstance(other, Distance):
-            return Distance(self.km * other.km)
+            raise print("bad type for oper mul")
 
         return Distance(self.km * other)
 
-    def __truediv__(self, other: Distance | int | float) -> Distance:
+    def __truediv__(self, other: Distance | int | float) -> Distance | None:
         if isinstance(other, Distance):
-            return Distance(round(self.km / other.km, 2))
+            return None
 
         return Distance(round(self.km / other, 2))
 
